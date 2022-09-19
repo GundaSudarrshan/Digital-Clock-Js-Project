@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital clock</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="clock">12:48:50 PM</div>
+      <div class="format-24">24 hr format</div>
+      <div class="format-12">12 hr format</div>
+    </div>
+    <script>
+      const format_24 = document.querySelector(".format-24");
+      const format_12 = document.querySelector(".format-12");
+      // selecting display para element
+      const Pad_2Digits = (value) => String(value).padStart(2, 0);
+      setInterval(function () {
+        const clock = document.querySelector(".clock");
+        const time = new Date();
+        let hr = time.getHours();
+        const min = String(time.getMinutes()).padStart(2, 0);
+        const sec = String(time.getSeconds()).padStart(2, 0);
+        // console.log(typeof sec);
+        let formatHr = hr;
+
+        if (format_12.classList.contains("active")) {
+          formatHr = String(hr - 12).padStart(2, 0);
+        }
+        if (format_24.classList.contains("active"))
+          formatHr = String(time.getHours()).padStart(2, 0);
+
+        clock.textContent = `${formatHr}:${min}:${sec}  ${
+          hr > 12 ? "PM" : "AM"
+        }`;
+      }, 0);
+      const timer = format_24.addEventListener("click", function () {
+        // console.log("24 is clicked");
+        // To make the buttons visible
+        format_24.classList.toggle("active");
+        format_12.classList.remove("active");
+      });
+      format_12.addEventListener("click", function () {
+        format_12.classList.toggle("active");
+        format_24.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>

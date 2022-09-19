@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.container {
+  width: 500px;
+  height: 200px;
+  background-color: black;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: hsl(117, 100%, 46%);
+}
+.container .clock {
+  font-size: 4rem;
+  line-height: 1.25;
+  letter-spacing: 8px;
+}
+.format-12,
+.format-24 {
+  background-color: hsl(171, 100%, 30%);
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+.active {
+  background-color: hsl(121, 100%, 50%);
+}
