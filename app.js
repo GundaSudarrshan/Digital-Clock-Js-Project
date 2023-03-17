@@ -26,7 +26,7 @@ const indianTime = function () {
 
 const londonTime = function () {
   const Lontime = new Date().toLocaleTimeString("en-Us", {
-    timeZone: "Asia/Dubai",
+    timeZone: "Europe/London",
     timeStyle: "medium",
     hour12: false,
   });
